@@ -19,3 +19,7 @@ class ReadFileTest(unittest.TestCase):
 
         the_file = file_reader.FileReader().read('build/test_data/1_mb_file')
         assert_equal(the_file['size'], 1)
+
+    def test_size_of_non_existing_file_returns_None(self):
+        the_file = file_reader.FileReader().read('build/test_data/non_existing')
+        assert_equal(the_file, None)
