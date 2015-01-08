@@ -3,6 +3,7 @@ import os
 import sys
 import data_builder
 
+
 sys.path.append(os.path.abspath(".."))
 
 from bobbadilla import file_reader
@@ -16,5 +17,5 @@ class ReadFileTest(unittest.TestCase):
         data_builder.FileBuilder().with_path(
             'build/test_data/1_mb_file').with_size(1).build()
 
-        the_file = file_reader.FileReader().read('build/test_data_1_mb_file')
-        assert_equal(the_file.size(), 1)
+        the_file = file_reader.FileReader().read('build/test_data/1_mb_file')
+        assert_equal(the_file['size'], 1)
