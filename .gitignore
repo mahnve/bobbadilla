@@ -51,4 +51,6 @@ coverage.xml
 docs/_build/
 
 # PyBuilder
-target/
+/build/
+*/__pycache__/
+*.pyc
