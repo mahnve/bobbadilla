@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+
+from bobbadilla import argparser
+
+argparser.parse()
