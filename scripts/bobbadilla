@@ -1,5 +1,21 @@
 #!/usr/bin/env python
 
-from bobbadilla import argparser
+from bobbadilla.main import Bobbadilla
+import argparse
 
-argparser.parse()
+parser = argparse.ArgumentParser(
+    description="Copies random files from a dir or m3u playlist to another dir"
+)
+parser.add_argument('--m3u')
+parser.add_argument('--input-dir')
+parser.add_argument('--output-dir')
+parser.add_argument('--max-data-volume')
+parser.add_argument('--min-file-size')
+parser.add_argument('--max-file-size')
+parser.add_argument('--min-length')
+parser.add_argument('--max-length')
+parser.add_argument('--verbose')
+
+args = parser.parse_args()
+
+Bobbadilla.copy_music(args.input_dir)
