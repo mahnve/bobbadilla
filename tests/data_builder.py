@@ -1,10 +1,23 @@
 import subprocess
+import os
+import errno
+
+
+def mkdir_p(path):
+    try:
+        os.makedirs(path)
+    except OSError as exc:
+        if exc.errno == errno.EEXIST and os.path.isdir(path):
+            pass
+        else:
+            raise
 
 
 class FileBuilder:
 
     def with_path(self, path=""):
         self.path = path
+        makedir_p(self.path)
         return self
 
     def with_size(self, size_mb=0):
